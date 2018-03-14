@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <title>妃子笑竞答活动</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <!--需要修改引入对应的css-->
+    <link rel="stylesheet" href="../css/index.css">
+    <!--需要修改引入对应的css-->
+</head>
+<body>
+    <!--首页-->
+    <div id="homePage" class="page  ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">妃子校竞答活动</span></header>
+        <div class="answerBar clearfix "><img src="../images/answerTitle.png" alt=""></div>
+        <div class="answerBtn"><span class="btn-start">开始答题</span></div>
+        <div class="cloudBottom"></div>
+    </div>
+    <!--角色选择-->
+    <div id="selectRole" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">选择对战模式</span></header>
+        <div class="cloudTop"></div>
+        <div class="role">
+            <div class="person"><img src="../images/icon-person.png" alt="" class="selected-border"><span>个人</span><i class="selected"></i></div>
+            <div class="team"><img src="../images/icon-team.png" alt="" class=""><span>团队</span><i class=""></i></div>
+        </div>
+        <ul class="vsPerson">
+            <li class="vsRandom"><img src="../images/boxing.png" alt=""><span>随机匹配</span></li>
+            <li class="vsFriend"><img src="../images/friend.png" alt=""><span>挑战好友</span></li>
+            <li class="vsRanking"><img src="../images/ranking.png" alt=""><span>排行榜</span></li>
+        </ul>
+        <ul class="vsTeam" style="display: none">
+            <li class="vsRandom"><img src="../images/boxing.png" alt=""><span>随机匹配</span></li>
+            <li class="vsShop"><img src="../images/shopHomepage.png" alt=""><span>店铺主页</span></li>
+            <li class="vsRanking"><img src="../images/ranking.png" alt=""><span>排行榜</span></li>
+        </ul>
+        <div class="introWrap">
+            <div class="personIntro">
+                <p class="roleIntro">角色介绍</p>
+                <p>选择对手有随机匹配和邀请两种方式</p>
+                <p> 随机匹配：实时获取在线用户</p>
+                <p> 挑战好友：选择指定对手</p>
+                <p>分数统计在个人账户中</p>
+            </div>
+            <div class="teamIntro"  style="display: none">
+                <p class="roleIntro">团队PK模式</p>
+                <p>随机匹配对手</p>
+                <p>  题库难度系数比较大，邀请团队成员</p>
+                <p> 一起参与哦！</p>
+                <p>分数统计在团队模式的账户中</p>
+            </div>
+        </div>
+    </div>
+    <!--pk匹配-->
+    <div id="pk" class="page  ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">妃子校竞答活动</span></header>
+        <div class="pkTop"></div>
+        <div class="pkBottom"></div>
+        <div class="pkCenter"><img src="../images/pk-bgCenter.png" alt=""></div>
+        <div class="vs">
+            <img src="../images/icon-vs.png" alt="" class="iconVs">
+            <!--自己-->
+            <div class="oneself">
+                <img src="../images/timg.jpg" alt="">
+                <p class="oneselfName">克丽缇娜</p>
+                <p class="onselfGrade">万年小白</p>
+            </div>
+            <!--对手-->
+            <div class="opponent" style="display: none">
+                <img src="../images/timg002.jpg" alt="">
+                <p class="opponentName">美丽黛佳美容</p>
+                <p class="opponentGrade">高中生</p>
+            </div>
+            <!--对手正在匹配-->
+            <div class="matching">
+                <img src="../images/matching.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!--答题页面-->
+    <div id="answer" class="page cur clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">妃子校竞答活动</span></header>
+        <div class="fight">
+            <div class="answerSelf">
+                <img src="../images/timg.jpg" alt="">
+                <p class="oneselfName">克丽缇娜</p>
+                <p class="onselfGrade">万年小白</p>
+            </div>
+            <div class="countDown"><i id="timer">10</i></div>
+            <div class="answerOpponent">
+                <img src="../images/timg002.jpg" alt="">
+                <p class="opponentName">美丽黛佳美容</p>
+                <p class="opponentGrade">高中生</p>
+            </div>
+        </div>
+        <!--答题-->
+        <div class="topic">
+            <p class="topicTitle">最后一题</p>
+            <div class="topicText">
+                <!--最后一题双倍得分-->
+                <p class="lastTopic" style="display: block">双倍得分<span><i>X</i>2</span></p>
+                <p style="display: none">  小明一直花钱，为什么最后变成
+                    了百万富翁？为什么呢风景会更
+                    好更快的话？
+                </p>
+            </div>
+            <div class="scoreResult">
+                <div class="scoreSelf">
+                    <span class="scoreNumSelf">0</span>
+                    <div class="barSelf">
+                        <div class="progress" style="height: 0%"></div>
+                    </div>
+                </div>
+                <ul class="key">
+                    <li><i class="player1 player1false"></i><i class="play2 player2false"></i><span class="keySelect selectedFalse"></span><span class="keyText">别人送他钱了</span></li>
+                    <li><i class="player1 player1false"></i><i class="play2 player2false"></i><span class="keySelect selectedFalse"></span><span class="keyText">点我就告诉你答案发哈</span></li>
+                    <li><i class="player1 player1true"></i><i class="play2 player2true"></i><span class="keySelect selectedTrue"></span><span class="keyText">他中了100万</span></li>
+                    <li><i class="player1"></i><i class="play2 player2false"></i><span class="keySelect selectedFalse"></span><span class="keyText">他以前是亿万富翁</span></li>
+                </ul>
+                <div class="scoreOpponent">
+                    <span class="scoreNumOpponent">60</span>
+                    <div class="barOpponent">
+                        <div class="progress" style="height: 100%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--完成答题-->
+    <div id="finish" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">妃子校竞答活动</span></header>
+        <div class="fight">
+            <div class="answerSelf">
+                <img src="../images/timg.jpg" alt="">
+                <p class="oneselfName">克丽缇娜</p>
+                <p class="onselfGrade">万年小白</p>
+            </div>
+            <div class="countDown" style="visibility: hidden"><i id="">10</i></div>
+            <div class="answerOpponent">
+                <img src="../images/timg002.jpg" alt="">
+                <p class="opponentName">美丽黛佳美容</p>
+                <p class="opponentGrade">高中生</p>
+            </div>
+            <!--对战分数-->
+            <div class="fightScore" style="display: block">
+                <p class="clearfix"><span class="selfScore">350</span><span class="fightVs">vs</span><span class="opponentScore">200</span></p>
+            </div>
+        </div>
+        <!--挑战成功与失败-->
+        <div class="test" style="display: block">
+            <div class="vsResult">
+                <p id="result">
+                    <img src='' alt="">
+                </p>
+            </div>
+            <ul class="vsBtn">
+                <li><span class="btnVS "></span><span class="keyText">和TA再来一局</span></li>
+                <li><span class="btnVS "></span><span class="keyText">重新玩</span></li>
+            </ul>
+        </div>
+    </div>
+    <!--我的主页与他的主页-->
+    <div id="myHomepage" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">我的主页</span></header>
+        <div class="personInfo">
+            <img src="../images/timg.jpg" alt="">
+            <p class="personName">王美美</p>
+            <p class="personGrade"><i></i>小学生</p>
+            <p class="personShop">所在店铺：<span class="shopName">嘉美莱美容院</span></p>
+            <div class="myFriend" style="display: none">
+                我的好友
+            </div>
+            <div class="addFriend" style="display: block">
+                <span>添加好友</span>
+            </div>
+        </div>
+        <div class="canvasWra" style="background-color: #FFDEB7">
+            <div id="canvas">
+                <div class="circle circles-text" id="circles-1"></div>
+                <div class="circle circles-text" id="circles-2"></div>
+                <div class="circle circles-text" id="circles-3"></div>
+            </div>
+            <div class="circleText">
+                <div class="circletxt">获胜</div>
+                <div class="circletxt">打平</div>
+                <div class="circletxt">失败</div>
+            </div>
+            <div class="cutLine"><div class="line"></div></div>
+            <div class="circleText">
+                <div class="circletxt circleNum">3</div>
+                <div class="circletxt circleNum">73</div>
+                <div class="circletxt circleNum">1314</div>
+            </div>
+            <div class="circleText">
+                <div class="circletxt">游戏场次</div>
+                <div class="circletxt">平均得分</div>
+                <div class="circletxt">总分</div>
+            </div>
+        </div>
+
+    </div>
+    <!--好友列表-->
+    <div id="friendList" class="page  ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">好友列表</span></header>
+        <div class="list">
+            <div class="searchWra">
+                <i class="searchIcon"></i><input type="text" class="search" placeholder="输入手机号码"><span class="cancel">取消</span>
+            </div>
+        </div>
+        <div class="dataListWra">
+            <ul class="dataList">
+               <!-- <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>
+                <li class="dataItem">
+                    <img src="../images/timg002.jpg" alt="">
+                    <div class="friendInfo">
+                        <p class="friendName">A小简单</p>
+                        <p class="friendGrade">万年小白</p>
+                    </div>
+                    <span class="inviteBtn">邀请</span>
+                </li>-->
+            </ul>
+        </div>
+
+        <!--当好友列表为空时添加好友提示-->
+        <p class="hint" style="display: none">您在游戏中还没有好友，快去添加好友吧～</p>
+        <p class="addFriendBtn">添加好友</p>
+    </div>
+    <!--筛选添加好友-->
+    <div id="filterFriend" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">添加好友</span></header>
+        <div class="filterList">
+            <div class="searchWra">
+                <i class="searchIcon"></i><input type="text" class="search" placeholder="输入手机号码"><span class="cancel">取消</span>
+            </div>
+        </div>
+        <div class="filter">
+            <div class="filterTitle">选择部门</div>
+            <ul id="filList">
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+                <li class="filItem"><img src="../images/icon-noSelect.png" alt="">伊丽莎白美容会所<span class="btnRight"></span></li>
+            </ul>
+        </div>
+    </div>
+    <!--我的店铺主页-->
+    <div id="myShoppage" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">我的主页</span></header>
+        <div class="shopInfo">
+            <img src="../images/timg.jpg" alt="">
+            <p class="shopName">华臣一美</p>
+            <p class="shopGrade"><i></i>普通</p>
+        </div>
+        <div class="shopArgument">
+            <p class="shopTitle"><span class="titleName">帐号昵称</span><span class="titleNum">次数</span><span class="titleScore">总分</span></p>
+            <ul class="argumentList">
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li>
+                <li class="argumentItem">
+                    <p class="argumentName">铃铛迪丽热巴</p>
+                    <p class="argumentNum">10</p>
+                    <p class="argumentScore">100</p>
+                    <span class="btnRight"></span>
+                </li><li class="argumentItem">
+                <p class="argumentName">铃铛迪丽热巴</p>
+                <p class="argumentNum">10</p>
+                <p class="argumentScore">100</p>
+                <span class="btnRight"></span>
+            </li>
+
+            </ul>
+        </div>
+    </div>
+    <!--TA的店铺主页-->
+    <div id="TaShoppage" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">TA的店铺主页</span></header>
+        <div class="TaShopInfo">
+            <img src="../images/timg.jpg" alt="">
+            <p class="TaShopName">美赞臣一</p>
+            <p class="TaShopGrade"><i></i>普通</p>
+        </div>
+        <div class="TaShopArgument">
+            <p class="TaShopTitle"><span class="TaTitleTime">答题时间</span><span class="TaTitleName">昵称</span><span class="TaTitleScore">总分</span></p>
+            <ul class="TaArgumentList">
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立李立李立李立李立李立李立李立李立</p>
+                    <p class="TaArgumentScore">10</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立</p>
+                    <p class="TaArgumentScore">100</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立</p>
+                    <p class="TaArgumentScore">2315</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立</p>
+                    <p class="TaArgumentScore">12455</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立</p>
+                    <p class="TaArgumentScore">12455</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                    <p class="TaArgumentTime">2018-01-20 12:20</p>
+                    <p class="TaArgumentName">李立</p>
+                    <p class="TaArgumentScore">12455</p>
+                    <span class="invite-btn">邀请</span>
+                </li>
+                <li class="TaArgumentItem">
+                <p class="TaArgumentTime">2018-01-20 12:20</p>
+                <p class="TaArgumentName">李立</p>
+                <p class="TaArgumentScore">12455</p>
+                <span class="invite-btn">邀请</span>
+            </li>
+
+            </ul>
+        </div>
+    </div>
+    <!--详情页-->
+    <div id="details" class="page  clearfix">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">详情</span></header>
+        <img src="../images/detail-Cloud.png" alt="" class="bgCloud">
+        <div class="argumentDetail">
+            <p class="detailText"><span class="answerTime">答题时间</span><span class="answerNum">贡献值</span></p>
+            <ul class="detailList">
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+                <li class="detailItem">
+                    <span class="detailTime">2018-01-20 12:20</span><span class="detailNum">+10</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--个人等级-->
+    <div id="personRank" class="page ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">等级</span></header>
+        <img src="../images/detail-Cloud.png" alt="" class="bgCloud">
+        <ul class="perRankList">
+            <li class="perRanItem"><img src="../images/icon-xiaobai.png" alt=""><span class="perRanName">万年小白</span><span class="RanStart"></span></li>
+            <li class="perRanItem"><img src="../images/icon-xiaoxuesheng.png" alt=""><span class="perRanName">小学生</span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="perRanItem"><img src="../images/icon-guangzhanshi.png" alt=""><span class="perRanName">狂战士</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="perRanItem"><img src="../images/icon-xingyuner.png" alt=""><span class="perRanName">幸运儿</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="perRanItem"><img src="../images/icon-pkwang.png" alt=""><span class="perRanName">PK王</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+        </ul>
+    </div>
+    <!--团队等级-->
+    <div id="teamRank" class="page ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">等级</span></header>
+        <img src="../images/detail-Cloud.png" alt="" class="bgCloud">
+        <ul class="teamRankList">
+            <li class="teamRanItem"><img src="../images/icon-qingtong.png" alt=""><span class="teamRanName">青铜白丁营</span><span class="RanStart"></span></li>
+            <li class="teamRanItem"><img src="../images/icon-baiyin.png" alt=""><span class="teamRanName">白银童生团</span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="teamRanItem"><img src="../images/icon-huangjin.png" alt=""><span class="teamRanName">黄金秀才旅</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="teamRanItem"><img src="../images/icon-bojin.png" alt=""><span class="teamRanName">铂金举人师</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+            <li class="teamRanItem"><img src="../images/icon-wangzhe.png" alt=""><span class="teamRanName">王者状元军</span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span><span class="RanStart"></span></li>
+        </ul>
+    </div>
+    <!--排行榜-->
+    <div id="topList" class="page ">
+        <header><img src="../images/btn-back.png" alt="" class="forBack"><span class="title">排行榜</span></header>
+        <div class="rankWrap">
+            <div class="rankClassify">
+                <div class="total rankClass">总分排行</div>
+                <div class="value">贡献值排名</div>
+            </div>
+            <div class="rankDetails">
+                <div class="topThree">
+                    <div class="topNo3">
+                        <div class="topNo3Wrap">
+                            <img src="../images/no3.jpeg" alt="">
+                            <span class="crown-blue"></span>
+                            <span class="topNo3Num"></span>
+                        </div>
+                        <div class="topNo3Info">
+                            <p class="topNo3Name">新知识</p>
+                            <p class="topNo3Score">138906</p>
+                        </div>
+                    </div>
+                    <div class="topNo1">
+                        <div class="topNo1Wrap">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="crown-yellow"></span>
+                            <span class="topNo1Num"></span>
+                        </div>
+                        <div class="topNo1Info">
+                            <p class="topNo1Name">新知识</p>
+                            <p class="topNo1Score">138906</p>
+                        </div>
+                        <span class="shadowLeft"></span>
+                        <span class="shadowRight"></span>
+                    </div>
+                    <div class="topNo2">
+                        <div class="topNo2Wrap">
+                            <img src="../images/no2.jpg" alt="">
+                            <span class="crown-red"></span>
+                            <span class="topNo2Num"></span>
+                        </div>
+                        <div class="topNo2Info">
+                            <p class="topNo2Name">美丽店</p>
+                            <p class="topNo2Score">138906</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="myRank">
+                    <span class="myNoNum">我的排名：<i class="NoNum">120</i></span>
+                    <span class="myTotal"><span class="totalText">总分：</span><i class="total">12380</i></span>
+                </div>
+                <ul class="topTen">
+                    <li class="topTenInfo">
+                       <div class="topTenImg">
+                           <img src="../images/no1.jpeg" alt="">
+                           <span class="rankNum">10</span>
+                       </div>
+                       <p class="topTenNum">192749</p>
+                       <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                   </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                    <li class="topTenInfo">
+                        <div class="topTenImg">
+                            <img src="../images/no1.jpeg" alt="">
+                            <span class="rankNum">10</span>
+                        </div>
+                        <p class="topTenNum">192749</p>
+                        <p class="topTenName">嘉美莱和你嘉美美莱和你嘉美莱和你嘉美莱和你</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+<script type="text/javascript" src="../js/rem.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/circles.min.js"></script>
+<script type="text/javascript" src="../js/router.js"></script>
+<script type="text/javascript">
+    $(function () {
+        /*测试模拟分数变化*/
+
+        var scoreNum = 0;
+        var scoreTimer = setInterval(function () {
+            scoreNum += 5;
+            $('.scoreNumSelf').text(scoreNum)
+            var percent = (scoreNum/60*100) + '%';
+            console.log(typeof percent,percent)
+            $('.barSelf .progress').height(percent).css({'transition':'height .5s'})
+            if(scoreNum >= 60){
+                clearInterval(scoreTimer)
+            }
+        },2000)
+        /*初始化就调用方法链接webscoket服务器*/
+//        WebSocketConnect()
+        /*每次页面从新加载时,回到主页*/
+        location.hash = 'homePage';//使用location.hash方法跳转路由
+        window.onhashchange = function (e) {
+            console.log(e)
+            //当hash变化时，执行hashchange事件，该事件具有oldURL和newURL两个事件属性，分别代表前一个URL和目前的URL
+            var oldHash = e.oldURL.split('#')[1];   //取得前一个hash
+            console.log(e.oldURL,'-------------------',oldHash,'--------------------',e.oldURL.split('#')[0])
+            var newHash = e.newURL.split('#')[1];   //取得当前hash
+            console.log(e.newURL,newHash,e.newURL.split('#')[0])
+            var oldPage = document.getElementById(oldHash);
+            var newPage = document.getElementById(newHash);
+            oldPage.classList.remove('cur');    //隐藏前一个page
+            newPage.classList.add('cur');     //显示当前page
+        };
+        /*返回按钮目前与浏览器返回按钮保持一致*/
+        $('.forBack').click(function () {
+            history.back()
+        })
+        /*调用路由*/
+        router.route()
+        /*个人模式跳转到个人排行榜*/
+        router.personRank(per)//可以调用个人排行榜的方法（传参）
+        /*团队模式跳转到团队排行榜*/
+        router.teamRank(team)
+        function per() {
+            alert('个人模式')
+        }
+        function team() {
+            alert('团队模式')
+        }
+        router.personPk(pkAnimate)
+        router.teamPk(team)
+        /*切换角色js*/
+        seleRole()
+        function seleRole() {
+            $('.role>div').click(function () {
+                $(this).find('img').addClass('selected-border').siblings('i').addClass('selected')
+                $(this).siblings().find('img').removeClass('selected-border').siblings('i').removeClass('selected')
+                var flag = $('.person').find('img').hasClass('selected-border')
+                console.log(flag)
+                if($('.person').find('img').hasClass('selected-border')){
+                    $('.vsPerson').show()
+                    $('.vsTeam').hide()
+                    $('.personIntro').show()
+                    $('.teamIntro').hide()
+                }else {
+                    $('.vsPerson').hide()
+                    $('.vsTeam').show()
+                    $('.personIntro').hide()
+                    $('.teamIntro').show()
+                }
+            })
+
+
+        }
+        /*倒计时*/
+        countDown()
+        function countDown () {
+            var num = 10
+            var timer = setInterval(function () {
+                $('#timer').html(num);
+                num--;
+                if(num == -1){
+                    clearInterval(timer)
+                }
+            },1000)
+        }
+        /*点击再来一局 从新玩js效果*/
+        btnSwitch()
+        function btnSwitch() {
+            $('.vsBtn>li').click(function () {
+                $(this).find('.btnVS').addClass('selectedFalse').siblings('.keyText').css({'color':'#fff'})
+                $(this).siblings().find('.btnVS').removeClass('selectedFalse').siblings('.keyText').css({'color':'#000'})
+            })
+        }
+        /*挑战成功与挑战失败*/
+        vsResult()
+        function vsResult() {
+            if(+$('.selfScore').text() > +$('.opponentScore').text()){
+                $('#result img').attr('src','../images/vs-win.png')
+            }else{
+                $('#result img').attr('src','../images/vs-defeated.png')
+            }
+        }
+        /*环形进度条配置参数*/
+        circlesSet(10,20,100);
+        function circlesSet(value1,value2,value3) {
+            var circles = [];
+            for (var i = 1; i <= 3; i++) {
+                var child = document.getElementById('circles-' + i),
+                        percentage = [value1,value2,value3];
+                circles.push(Circles.create({
+                    id:         child.id,
+                    maxValue:   100,
+                    value:		percentage[i-1],
+                    radius:     40,
+                    width:      6,
+                    colors:     ['#FFFFFF', '#fc8367'],
+                    text:        function(value){return value + '%';},
+                    textClass:  'circles-text',
+                }));
+            }
+        }
+        /*搜索好友取消按钮*/
+        cancel()
+        function cancel() {
+            $('.cancel').click(function () {
+                $('.search').val('')
+            })
+        }
+        /*是否显示添加好友提示*/
+        hintShow()
+        function hintShow() {
+            if($('.dataList>li').length == 0){
+                $('.hint').show()
+            }else{
+                $('.hint').hide()
+            }
+        }
+        /*筛选好友选中状态*/
+        setSelected()
+        function setSelected() {
+            $('#filList>li').click(function () {
+                $(this).find('img').attr('src','../images/icon-selected.png')
+                $(this).siblings().find('img').attr('src','../images/icon-noSelect.png')
+            })
+        }
+        /*排行榜切换开关*/
+        rankSwitch()
+        function rankSwitch() {
+            $('.rankClassify>div').click(function () {
+                $(this).addClass('rankClass').siblings().removeClass('rankClass')
+                if($('.value').hasClass('rankClass')){
+                    for(var i=1;i<=3;i++){
+                        $('.topNo'+i+'Score').addClass('topNo'+i+'Value').removeClass('topNo'+i+'Score')
+                    }
+                    $('.totalText').text('贡献值：')
+                }else if($('.total').hasClass('rankClass')){
+                    for(var i=1;i<=3;i++){
+                        $('.topNo'+i+'Value').addClass('topNo'+i+'Score').removeClass('topNo'+i+'Value')
+                    }
+                    $('.totalText').text('总分：')
+                }
+            })
+        }
+        /*定义排行版数字*/
+        rankNum()
+        function rankNum() {
+            for(var i=4;i<=10;i++){
+                $('.topTen li:nth-child('+(i-3)+')').find('.rankNum').text(i)
+            }
+        }
+    })
+    /*webScoket链接方法*/
+    function WebSocketConnect() {
+        if ("WebSocket" in window) {
+            console.log('当前浏览器支持webscoket')
+            // 打开一个 web socket，链接webscoket服务器地址
+//                var ws = new WebSocket("ws://localhost:9998/echo");
+                var ws = new WebSocket("ws://10.10.8.22:8377/mtmy-wap/websocket");
+//            var ws = new WebSocket("ws://172.50.3.33:8080/mtmy-wap/websocket");
+
+            ws.onopen = function () {
+                // Web Socket 已连接上，使用 send() 方法发送数据
+                ws.send("发送数据");
+                alert("数据发送中...");
+            };
+
+            ws.onmessage = function (evt) {
+//                    接收数据
+                var received_msg = evt.data;
+                console.log(received_msg)
+                alert("数据已接收...");
+            };
+
+            ws.onclose = function () {
+                // 关闭 websocket
+                alert("连接已关闭...");
+            };
+        }
+        else {
+            // 浏览器不支持 WebSocket
+            alert("当前浏览器不支持 WebSocket!");
+        }
+    }
+
+    /*页面中所有动画效果*/
+    /*pk页面匹配中动画效果*/
+    function pkAnimate() {
+        $('.oneself').addClass('fadeInLeft')
+        $('.matching').addClass('fadeOut')
+        /*模拟匹配成功后动画效果*/
+        setTimeout(function () {
+         $('.matching').hide()
+         $('.opponent').show().addClass('fadeInRight')
+         },3000)
+
+            $('.iconVs').addClass('bounceIn')
+
+    }
+</script>
+</body>
+</html>

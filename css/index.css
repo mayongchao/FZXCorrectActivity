@@ -1,0 +1,2137 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: #ffffff;
+}
+.page {
+  display: none;
+}
+.page.cur {
+  display: block;
+}
+/*定义选中的角色选择的状态*/
+.selected-border {
+  border: 0.064rem solid #fd7c5a !important;
+}
+.selected {
+  display: inline-block;
+  width: 1.2373333333333334rem;
+  height: 1.2373333333333334rem;
+  background: url("../images/btn-select.png") no-repeat center;
+  background-size: 100%;
+  position: absolute;
+  left: 1.536rem;
+  top: 3.6693333333333333rem;
+}
+/*选择正确与选择错误*/
+.selectedTrue {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 10.517333333333333rem;
+  height: 100%;
+  border-radius: 1.0666666666666667rem;
+  background-color: rgba(5, 172, 252, 0.7);
+}
+.selectedFalse {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 10.517333333333333rem;
+  height: 100%;
+  border-radius: 1.0666666666666667rem;
+  background-color: rgba(231, 13, 0, 0.7);
+}
+/*自己*/
+.player1true {
+  position: absolute;
+  left: 0.64rem;
+  top: 0.64rem;
+  width: 0.8533333333333334rem;
+  height: 0.8533333333333334rem;
+  background: url("../images/true.png") no-repeat center;
+  background-size: 100%;
+  z-index: 200;
+}
+.player1false {
+  position: absolute;
+  left: 0.64rem;
+  top: 0.64rem;
+  width: 0.768rem;
+  height: 0.768rem;
+  background: url("../images/false.png") no-repeat center;
+  background-size: 0.768rem 0.768rem;
+  z-index: 200;
+}
+/*对方*/
+.player2false {
+  position: absolute;
+  right: 0.64rem;
+  top: 0.64rem;
+  width: 0.768rem;
+  height: 0.768rem;
+  background: url("../images/false.png") no-repeat center;
+  background-size: 0.768rem 0.768rem;
+  z-index: 200;
+}
+.player2true {
+  position: absolute;
+  right: 0.64rem;
+  top: 0.64rem;
+  width: 0.8533333333333334rem;
+  height: 0.8533333333333334rem;
+  background: url("../images/true.png") no-repeat center;
+  background-size: 100%;
+  z-index: 200;
+}
+/*定义排行类型选中状态*/
+.rankClass {
+  background-color: #FD7C5A;
+  color: #FFFFFF;
+}
+/*贡献值图标*/
+header {
+  position: fixed;
+  z-index: 800;
+  width: 100%;
+  background-color: #EB6985;
+  text-align: center;
+}
+header img {
+  width: 0.3626666666666667rem;
+  height: 0.7893333333333333rem;
+  position: absolute;
+  left: 0.512rem;
+  top: 0.5333333333333333rem;
+}
+header .title {
+  display: inline-block;
+  height: 1.8773333333333333rem;
+  font-size: 0.7253333333333334rem;
+  color: #FFFFFF;
+  line-height: 1.8773333333333333rem;
+  position: relative;
+}
+#homePage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/homepage-background.png") no-repeat center bottom #e94b26;
+  background-size: 100% auto;
+}
+#homePage .answerBar {
+  width: 100%;
+}
+#homePage .answerBar img {
+  width: 100%;
+  padding-top: 3.84rem;
+  display: block;
+}
+#homePage .answerBtn {
+  width: 100%;
+  text-align: center;
+  margin-top: 5.973333333333334rem;
+}
+#homePage .answerBtn span {
+  display: inline-block;
+  font-size: 1.0666666666666667rem;
+  width: 8.533333333333333rem;
+  height: 1.92rem;
+  border-radius: 0.96rem;
+  background-color: #FEC771;
+  color: #FDFCFC;
+  text-align: center;
+  line-height: 1.92rem;
+}
+#homePage .cloudBottom {
+  width: 100%;
+  height: 5.333333333333333rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: url("../images/cloud-bottom.png") no-repeat center;
+  background-size: 100% 5.333333333333333rem;
+}
+#selectRole {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: bottom #fdc5a3;
+  background-size: 100% auto;
+}
+#selectRole .cloudTop {
+  width: 100%;
+  height: 3.328rem;
+  background: url("../images/cloud-top.png") no-repeat center bottom;
+  background-size: 100% 3.328rem;
+  padding-top: 1.8773333333333333rem;
+}
+#selectRole .role {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.3626666666666667rem;
+}
+#selectRole .role .person {
+  position: relative;
+}
+#selectRole .role .person img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+  display: block;
+  border: 0.064rem solid rgba(0, 0, 0, 0);
+}
+#selectRole .role .person span {
+  display: block;
+  margin-top: 0.64rem;
+  width: 4.266666666666667rem;
+  text-align: center;
+  font-size: 0.7253333333333334rem;
+  color: #333333;
+}
+#selectRole .role .team {
+  position: relative;
+}
+#selectRole .role .team img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+  display: block;
+  border: 0.064rem solid rgba(0, 0, 0, 0);
+}
+#selectRole .role .team span {
+  display: block;
+  margin-top: 0.64rem;
+  width: 4.266666666666667rem;
+  text-align: center;
+  font-size: 0.7253333333333334rem;
+  color: #333333;
+}
+#selectRole .vsPerson {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5786666666666667rem;
+}
+#selectRole .vsPerson li {
+  width: 3.84rem;
+  height: 3.84rem;
+  border-radius: 0.4266666666666667rem;
+  background-color: #34B8F1;
+  text-align: center;
+  font-size: 0.512rem;
+  color: #ffffff;
+}
+#selectRole .vsPerson li span {
+  display: block;
+  margin-top: 0.4266666666666667rem;
+}
+#selectRole .vsPerson .vsRandom img {
+  width: 2.3893333333333335rem;
+  height: 1.152rem;
+  margin-top: 0.896rem;
+}
+#selectRole .vsPerson .vsFriend img {
+  width: 1.2373333333333334rem;
+  height: 1.3226666666666667rem;
+  margin-top: 0.6826666666666666rem;
+}
+#selectRole .vsPerson .vsRanking img {
+  width: 1.3226666666666667rem;
+  height: 1.344rem;
+  margin-top: 0.7253333333333334rem;
+}
+#selectRole .vsTeam {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5786666666666667rem;
+}
+#selectRole .vsTeam li {
+  width: 3.84rem;
+  height: 3.84rem;
+  border-radius: 0.4266666666666667rem;
+  background-color: #34B8F1;
+  text-align: center;
+  font-size: 0.512rem;
+  color: #ffffff;
+}
+#selectRole .vsTeam li span {
+  display: block;
+  margin-top: 0.4266666666666667rem;
+}
+#selectRole .vsTeam .vsRandom img {
+  width: 2.3893333333333335rem;
+  height: 1.152rem;
+  margin-top: 0.896rem;
+}
+#selectRole .vsTeam .vsShop img {
+  width: 1.3866666666666667rem;
+  height: 1.2373333333333334rem;
+  margin-top: 0.7466666666666667rem;
+}
+#selectRole .vsTeam .vsRanking img {
+  width: 1.3226666666666667rem;
+  height: 1.344rem;
+  margin-top: 0.7253333333333334rem;
+}
+#selectRole .introWrap {
+  position: relative;
+  margin-top: 2.3466666666666667rem;
+  box-sizing: border-box;
+  padding: 0 0.8533333333333334rem;
+}
+#selectRole .introWrap:after {
+  display: inline-block;
+  content: '';
+  width: 4.224rem;
+  height: 2.7093333333333334rem;
+  background: url("../images/vsCloud.png") no-repeat center;
+  background-size: 4.224rem 2.7093333333333334rem;
+  position: absolute;
+  right: 0;
+  bottom: -0.32rem;
+}
+#selectRole .introWrap .personIntro {
+  box-sizing: border-box;
+  padding: 0.64rem;
+  width: 100%;
+  height: 5.1626666666666665rem;
+  border-radius: 0.4266666666666667rem;
+  background-color: #ffffff;
+}
+#selectRole .introWrap .personIntro .roleIntro {
+  font-size: 0.7253333333333334rem;
+  color: #333333;
+  margin-bottom: 0.4266666666666667rem;
+  font-weight: bold;
+}
+#selectRole .introWrap .personIntro p {
+  font-size: 0.5973333333333334rem;
+  color: #666;
+  padding-bottom: 0.128rem;
+}
+#selectRole .introWrap .teamIntro {
+  box-sizing: border-box;
+  padding: 0.64rem;
+  width: 100%;
+  height: 5.1626666666666665rem;
+  border-radius: 0.4266666666666667rem;
+  background-color: #ffffff;
+}
+#selectRole .introWrap .teamIntro .roleIntro {
+  font-size: 0.7253333333333334rem;
+  color: #333333;
+  margin-bottom: 0.4266666666666667rem;
+  font-weight: bold;
+}
+#selectRole .introWrap .teamIntro p {
+  font-size: 0.5973333333333334rem;
+  color: #666;
+  padding-bottom: 0.128rem;
+}
+#pk {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#pk .pkTop {
+  width: 100%;
+  height: 50%;
+  background-color: #FE5730;
+}
+#pk .pkBottom {
+  width: 100%;
+  height: 50%;
+  background-color: #1EB1FD;
+}
+#pk .pkCenter {
+  width: 100%;
+  height: 12.8rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+#pk .pkCenter img {
+  width: 100%;
+  display: block;
+}
+#pk .vs {
+  width: 100%;
+  height: 18.666666666666668rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+#pk .vs .iconVs {
+  position: absolute;
+  width: 4.544rem;
+  height: 6.08rem;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+#pk .vs .oneself {
+  width: 40%;
+  height: 6.72rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+#pk .vs .oneself img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+}
+#pk .vs .oneself .oneselfName {
+  font-size: 0.7253333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.64rem;
+}
+#pk .vs .oneself .onselfGrade {
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  margin-top: 0.4266666666666667rem;
+}
+#pk .vs .oneself .onselfGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#pk .vs .opponent {
+  width: 40%;
+  height: 6.72rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+#pk .vs .opponent img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+}
+#pk .vs .opponent .opponentName {
+  font-size: 0.7253333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.64rem;
+}
+#pk .vs .opponent .opponentGrade {
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  margin-top: 0.4266666666666667rem;
+}
+#pk .vs .opponent .opponentGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#pk .vs .matching {
+  width: 40%;
+  height: 6.72rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+#pk .vs .matching img {
+  width: 4.864rem;
+  height: 0.7893333333333333rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+#answer {
+  width: 100%;
+  height: 100%;
+  background: url("../images/answer-bg.png") no-repeat center top #ffdeb7;
+  background-size: 100% auto;
+}
+#answer .fight {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2.7733333333333334rem;
+  position: relative;
+}
+#answer .fight .answerSelf {
+  width: 25%;
+  height: 6.72rem;
+  text-align: center;
+}
+#answer .fight .answerSelf img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}
+#answer .fight .answerSelf .oneselfName {
+  font-size: 0.5973333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.4053333333333333rem;
+}
+#answer .fight .answerSelf .onselfGrade {
+  font-size: 0.512rem;
+  color: #FEEADA;
+  margin-top: 0.2986666666666667rem;
+}
+#answer .fight .answerSelf .onselfGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#answer .fight .countDown {
+  width: 20%;
+  height: 6.72rem;
+  background: url("../images/drum.png") no-repeat center 3.4133333333333336rem;
+  background-size: 2.7306666666666666rem 2.56rem;
+  position: relative;
+}
+#answer .fight .countDown #timer {
+  width: 1.28rem;
+  height: 1.0666666666666667rem;
+  text-align: center;
+  font-size: 30px;
+  color: #333333;
+  font-style: normal;
+  position: absolute;
+  bottom: 1.792rem;
+  left: 0.9386666666666666rem;
+  font-weight: bold;
+}
+#answer .fight .answerOpponent {
+  width: 25%;
+  height: 6.72rem;
+  text-align: center;
+}
+#answer .fight .answerOpponent img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}
+#answer .fight .answerOpponent .opponentName {
+  font-size: 0.5973333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.4053333333333333rem;
+}
+#answer .fight .answerOpponent .opponentGrade {
+  font-size: 0.512rem;
+  color: #FEEADA;
+  margin-top: 0.2986666666666667rem;
+}
+#answer .fight .answerOpponent .opponentGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#answer .fight .fightScore {
+  position: absolute;
+  left: 0;
+  top: 1.28rem;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 6.4rem;
+  height: 3.2rem;
+  background-color: #bfa;
+  background: url("../images/fightScore-bg.png") no-repeat center bottom;
+  background-size: 5.632rem 0.96rem;
+}
+#answer .fight .fightScore p {
+  text-align: center;
+  position: relative;
+  margin-top: 0.64rem;
+}
+#answer .fight .fightScore p .selfScore {
+  float: left;
+  font-size: 1.28rem;
+  font-weight: bold;
+  -webkit-text-stroke: 2px #000;
+  color: #3DC4FC;
+  width: 2.24rem;
+  height: 1.28rem;
+}
+#answer .fight .fightScore p .fightVs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 1.28rem;
+  font-weight: bold;
+  color: #FEC343;
+  -webkit-text-stroke: 2px #000;
+}
+#answer .fight .fightScore p .opponentScore {
+  width: 2.24rem;
+  height: 1.28rem;
+  float: right;
+  font-size: 1.28rem;
+  font-weight: bold;
+  -webkit-text-stroke: 2px #000;
+  color: #FF4E3D;
+}
+#answer .topic {
+  width: 100%;
+  text-align: center;
+  margin-top: 2.1333333333333333rem;
+}
+#answer .topic .topicTitle {
+  font-size: 0.768rem;
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 0.21333333333333335rem;
+}
+#answer .topic .topicText {
+  display: inline-block;
+  width: 11.093333333333334rem;
+  height: 3.328rem;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 0.64rem 1.0666666666666667rem;
+  margin-top: 0.4266666666666667rem;
+}
+#answer .topic .topicText .lastTopic {
+  font-size: 0.9813333333333333rem;
+  color: #F3471F;
+  text-align: center;
+  margin-top: 0.64rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+#answer .topic .topicText .lastTopic span {
+  font-size: 1.28rem;
+  font-weight: bold;
+}
+#answer .topic .topicText .lastTopic span i {
+  font-size: 1.0666666666666667rem;
+  font-style: normal;
+  font-weight: bold;
+}
+#answer .topic .topicText p {
+  font-size: 0.5973333333333334rem;
+  color: #000;
+  text-align: left;
+  line-height: 0.8106666666666666rem;
+}
+#answer .topic .scoreResult {
+  margin-top: 0.7466666666666667rem;
+  display: flex;
+  justify-content: space-around;
+}
+#answer .topic .scoreResult .scoreSelf {
+  width: 2.56rem;
+  height: 10.026666666666667rem;
+  position: relative;
+}
+#answer .topic .scoreResult .scoreSelf .scoreNumSelf {
+  position: absolute;
+  width: 1.2373333333333334rem;
+  height: 0.576rem;
+  text-align: center;
+  font-size: 0.7253333333333334rem;
+  color: #000000;
+  left: 0.8533333333333334rem;
+  top: -1.28rem;
+  font-weight: bold;
+}
+#answer .topic .scoreResult .scoreSelf .barSelf {
+  margin-left: 1.1946666666666668rem;
+  position: relative;
+  width: 0.5546666666666666rem;
+  height: 10.026666666666667rem;
+  background-color: #FFBA8A;
+  border: 0.064rem solid #000000;
+}
+#answer .topic .scoreResult .scoreSelf .barSelf .progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0.5546666666666666rem;
+  background-color: #3DC4FC;
+}
+#answer .topic .scoreResult .scoreSelf .barSelf .progress:before {
+  content: '';
+  display: inline-block;
+  width: 0.8106666666666666rem;
+  height: 0.8106666666666666rem;
+  border-radius: 50%;
+  background-color: #EEB68F;
+  border: 0.064rem solid #000000;
+  position: absolute;
+  top: -0.5333333333333333rem;
+  left: -0.21333333333333335rem;
+}
+#answer .topic .scoreResult .key {
+  width: 10.517333333333333rem;
+  height: 10.026666666666667rem;
+}
+#answer .topic .scoreResult .key li {
+  width: 10.453333333333333rem;
+  height: 2.1333333333333333rem;
+  background: url("../images/key-bg.png") no-repeat center #fff9e9;
+  background-size: 100%;
+  border-radius: 1.0666666666666667rem;
+  border: 0.064rem solid #000000;
+  margin-top: 0.256rem;
+  font-size: 0.7253333333333334rem;
+  color: #000000;
+  line-height: 2.1333333333333333rem;
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+}
+#answer .topic .scoreResult .key li .keyText {
+  position: relative;
+  z-index: 100;
+}
+#answer .topic .scoreResult .scoreOpponent {
+  width: 2.7306666666666666rem;
+  height: 10.026666666666667rem;
+  position: relative;
+}
+#answer .topic .scoreResult .scoreOpponent .scoreNumOpponent {
+  width: 1.2373333333333334rem;
+  height: 0.576rem;
+  text-align: center;
+  position: absolute;
+  font-size: 0.7253333333333334rem;
+  color: #000000;
+  left: 0.512rem;
+  top: -1.28rem;
+  font-weight: bold;
+}
+#answer .topic .scoreResult .scoreOpponent .barOpponent {
+  float: right;
+  margin-right: 1.1946666666666668rem;
+  position: relative;
+  width: 0.5546666666666666rem;
+  height: 10.026666666666667rem;
+  background-color: #FFBA8A;
+  border: 0.064rem solid #000000;
+}
+#answer .topic .scoreResult .scoreOpponent .barOpponent .progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0.5546666666666666rem;
+  height: 10%;
+  background-color: #E7584A;
+}
+#answer .topic .scoreResult .scoreOpponent .barOpponent .progress:before {
+  content: '';
+  display: inline-block;
+  width: 0.8106666666666666rem;
+  height: 0.8106666666666666rem;
+  border-radius: 50%;
+  background-color: #EEB68F;
+  border: 0.064rem solid #000000;
+  position: absolute;
+  top: -0.5333333333333333rem;
+  left: -0.21333333333333335rem;
+}
+#finish {
+  width: 100%;
+  height: 100%;
+  background: url("../images/answer-bg.png") no-repeat center top #ffdeb7;
+  background-size: 100% auto;
+}
+#finish .fight {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2.7733333333333334rem;
+  position: relative;
+}
+#finish .fight .answerSelf {
+  width: 25%;
+  height: 6.72rem;
+  text-align: center;
+}
+#finish .fight .answerSelf img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}
+#finish .fight .answerSelf .oneselfName {
+  font-size: 0.5973333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.4053333333333333rem;
+}
+#finish .fight .answerSelf .onselfGrade {
+  font-size: 0.512rem;
+  color: #FEEADA;
+  margin-top: 0.2986666666666667rem;
+}
+#finish .fight .answerSelf .onselfGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#finish .fight .countDown {
+  width: 20%;
+  height: 6.72rem;
+  background: url("../images/drum.png") no-repeat center 3.4133333333333336rem;
+  background-size: 2.7306666666666666rem 2.56rem;
+  position: relative;
+}
+#finish .fight .countDown #timer {
+  width: 1.28rem;
+  height: 1.0666666666666667rem;
+  text-align: center;
+  font-size: 30px;
+  color: #333333;
+  font-style: normal;
+  position: absolute;
+  bottom: 1.792rem;
+  left: 0.9386666666666666rem;
+  font-weight: bold;
+}
+#finish .fight .answerOpponent {
+  width: 25%;
+  height: 6.72rem;
+  text-align: center;
+}
+#finish .fight .answerOpponent img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+}
+#finish .fight .answerOpponent .opponentName {
+  font-size: 0.5973333333333334rem;
+  color: #FFFFFF;
+  margin-top: 0.4053333333333333rem;
+}
+#finish .fight .answerOpponent .opponentGrade {
+  font-size: 0.512rem;
+  color: #FEEADA;
+  margin-top: 0.2986666666666667rem;
+}
+#finish .fight .answerOpponent .opponentGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/icon-grade.png") no-repeat center;
+  background-size: 0.5546666666666666rem 0.5333333333333333rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.08533333333333333rem;
+}
+#finish .fight .fightScore {
+  position: absolute;
+  left: 0;
+  top: 1.28rem;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 6.4rem;
+  height: 3.2rem;
+  background-color: #bfa;
+  background: url("../images/fightScore-bg.png") no-repeat center bottom;
+  background-size: 5.632rem 0.96rem;
+}
+#finish .fight .fightScore p {
+  text-align: center;
+  position: relative;
+  margin-top: 0.64rem;
+}
+#finish .fight .fightScore p .selfScore {
+  float: left;
+  font-size: 1.28rem;
+  font-weight: bold;
+  -webkit-text-stroke: 2px #000;
+  color: #3DC4FC;
+  width: 2.24rem;
+  height: 1.28rem;
+}
+#finish .fight .fightScore p .fightVs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 1.28rem;
+  font-weight: bold;
+  color: #FEC343;
+  -webkit-text-stroke: 2px #000;
+}
+#finish .fight .fightScore p .opponentScore {
+  width: 2.24rem;
+  height: 1.28rem;
+  float: right;
+  font-size: 1.28rem;
+  font-weight: bold;
+  -webkit-text-stroke: 2px #000;
+  color: #FF4E3D;
+}
+#finish .test .vsResult {
+  text-align: center;
+  margin-top: 3.6266666666666665rem;
+  /*挑战成功*/
+  /*挑战失败*/
+}
+#finish .test .vsResult #result {
+  display: inline-block;
+  width: 11.093333333333334rem;
+  height: 3.328rem;
+  font-size: 1.5786666666666667rem;
+  line-height: 3.7546666666666666rem;
+  background-color: #ffffff;
+  font-weight: bold;
+  letter-spacing: 0.4266666666666667rem;
+}
+#finish .test .vsResult #result img {
+  width: 7.509333333333333rem;
+  height: 1.472rem;
+}
+#finish .test .vsResult .win {
+  color: #FF7C6F;
+  -webkit-text-stroke: 2px #FC3A28;
+}
+#finish .test .vsResult .defeated {
+  color: #89DBFD;
+  -webkit-text-stroke: 2px #13B8FD;
+}
+#finish .test .vsBtn {
+  text-align: center;
+  margin-top: 2.453333333333333rem;
+}
+#finish .test .vsBtn li {
+  margin-top: 0.96rem;
+  display: inline-block;
+  width: 10.453333333333333rem;
+  height: 2.1333333333333333rem;
+  background: url("../images/key-bg.png") no-repeat center #fff9e9;
+  background-size: 100%;
+  border-radius: 1.0666666666666667rem;
+  border: 0.064rem solid #000000;
+  font-size: 0.7253333333333334rem;
+  color: #000000;
+  line-height: 2.1333333333333333rem;
+  text-align: center;
+  font-weight: 500;
+  position: relative;
+}
+#finish .test .vsBtn li .keyText {
+  position: relative;
+  z-index: 100;
+}
+#myHomepage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/myHomepage.png") no-repeat center top #ffdeb7;
+  background-size: 100% auto;
+}
+#myHomepage .personInfo {
+  position: relative;
+  padding-top: 2.7733333333333334rem;
+  text-align: center;
+}
+#myHomepage .personInfo img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+}
+#myHomepage .personInfo .personName {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.7253333333333334rem;
+  color: #ffffff;
+  text-align: center;
+}
+#myHomepage .personInfo .personGrade {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  text-align: center;
+}
+#myHomepage .personInfo .personGrade i {
+  display: inline-block;
+  font-style: normal;
+  width: 0.5973333333333334rem;
+  height: 0.576rem;
+  background: url("../images/personGrade.png") no-repeat center;
+  background-size: 0.5973333333333334rem 0.576rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.128rem;
+}
+#myHomepage .personInfo .personShop {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  text-align: center;
+}
+#myHomepage .personInfo .myFriend {
+  position: absolute;
+  width: 2.986666666666667rem;
+  height: 1.28rem;
+  right: 0;
+  top: 4.266666666666667rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 0.5546666666666666rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.28rem;
+  border-radius: 0.64rem 0 0 0.64rem;
+  text-indent: 0.2986666666666667rem;
+}
+#myHomepage .personInfo .addFriend {
+  position: absolute;
+  width: 3.7333333333333334rem;
+  height: 1.28rem;
+  right: 0;
+  top: 4.266666666666667rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 0.5546666666666666rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.28rem;
+  border-radius: 0.64rem 0 0 0.64rem;
+  text-indent: 0.2986666666666667rem;
+}
+#myHomepage .personInfo .addFriend span:before {
+  display: inline-block;
+  content: '';
+  width: 0.512rem;
+  height: 0.512rem;
+  background: url("../images/add.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.128rem;
+}
+#myHomepage #canvas {
+  margin-top: 6.1866666666666665rem;
+  display: flex;
+  justify-content: space-around;
+}
+#myHomepage #canvas .circles-text {
+  font-size: 0.9173333333333333rem !important;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
+}
+#myHomepage .circleText {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.4266666666666667rem;
+}
+#myHomepage .circleText .circletxt {
+  width: 3.4133333333333336rem;
+  font-size: 0.704rem;
+  color: #000000;
+  font-weight: bold;
+  text-align: center;
+}
+#myHomepage .circleText .circleNum {
+  font-size: 1.0666666666666667rem;
+}
+#myHomepage .cutLine {
+  box-sizing: border-box;
+  padding: 0 1.28rem;
+  margin-top: 1.7066666666666668rem;
+  margin-bottom: 1.7066666666666668rem;
+}
+#myHomepage .cutLine .line {
+  background-color: #FED3A0;
+  height: 1px;
+}
+#friendList {
+  width: 100%;
+  height: 100%;
+  background: #fec9a9;
+}
+#friendList .list {
+  position: fixed;
+  width: 100%;
+  background-color: #FEFFF1;
+  box-sizing: border-box;
+  padding: 1.8773333333333333rem 0.5333333333333333rem 0 0.5333333333333333rem;
+}
+#friendList .list .searchWra {
+  position: relative;
+}
+#friendList .list .searchWra .searchIcon {
+  display: inline-block;
+  width: 0.6186666666666667rem;
+  height: 0.576rem;
+  background: url("../images/search.png") no-repeat center;
+  background-size: 0.6186666666666667rem 0.576rem;
+  position: absolute;
+  left: 0.384rem;
+  top: 0.768rem;
+}
+#friendList .list .searchWra .search {
+  width: 12.949333333333334rem;
+  height: 1.28rem;
+  background-color: #FEC9A9;
+  border-radius: 0.64rem;
+  margin: 0.4266666666666667rem 0;
+  text-indent: 1.28rem;
+  font-size: 15px;
+  outline: none;
+  color: #ffffff;
+}
+#friendList .list .searchWra .search::-webkit-input-placeholder {
+  color: #FFFFFF;
+  text-indent: 1.28rem;
+}
+#friendList .list .searchWra .cancel {
+  display: inline-block;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  color: #FD7C5A;
+  font-size: 0.5973333333333334rem;
+  margin-left: 0.5333333333333333rem;
+}
+#friendList .dataListWra {
+  padding-bottom: 1.9626666666666666rem;
+  background-color: #FEC9A9;
+}
+#friendList .dataListWra .dataList {
+  padding-top: 4.053333333333334rem;
+  background-color: #FFFEFFF1;
+}
+#friendList .dataListWra .dataList .dataItem {
+  background-color: #FEFFF1;
+  height: 3.2rem;
+  box-sizing: border-box;
+  padding: 0.5333333333333333rem;
+  border-top: 1px solid #FDE8CF;
+}
+#friendList .dataListWra .dataList .dataItem img {
+  width: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-radius: 50%;
+  float: left;
+}
+#friendList .dataListWra .dataList .dataItem .friendInfo {
+  display: inline-block;
+}
+#friendList .dataListWra .dataList .dataItem .friendInfo .friendName {
+  font-size: 0.64rem;
+  color: #333333;
+  line-height: 1.408rem;
+  margin-left: 0.4266666666666667rem;
+}
+#friendList .dataListWra .dataList .dataItem .friendInfo .friendGrade {
+  font-size: 0.512rem;
+  color: #ffba00;
+  line-height: 0.128rem;
+  margin-left: 0.4266666666666667rem;
+}
+#friendList .dataListWra .dataList .dataItem .friendInfo .friendGrade:before {
+  content: '';
+  display: inline-block;
+  width: 0.5546666666666666rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/friend-GradeIcon.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-top: -0.128rem;
+  margin-right: 0.128rem;
+}
+#friendList .dataListWra .dataList .dataItem .inviteBtn {
+  width: 2.56rem;
+  height: 1.0666666666666667rem;
+  line-height: 1.152rem;
+  text-align: center;
+  background-color: #FD7C5A;
+  font-size: 0.5973333333333334rem;
+  color: #ffffff;
+  border-radius: 0.5333333333333333rem;
+  float: right;
+  margin-top: 0.5333333333333333rem;
+}
+#friendList .addFriendBtn {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #FD7C5A;
+  width: 100%;
+  height: 1.92rem;
+  font-size: 0.64rem;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.92rem;
+  font-family: PingFangSC-Regular;
+}
+#friendList .hint {
+  position: fixed;
+  left: 0;
+  bottom: 6.4rem;
+  width: 100%;
+  text-align: center;
+  font-size: 0.64rem;
+  color: #000000;
+}
+#friendList .hint:after {
+  content: '';
+  display: inline-block;
+  width: 1.0666666666666667rem;
+  height: 1.856rem;
+  background: url("../images/hint.png") no-repeat center;
+  background-size: 100%;
+  position: absolute;
+  top: 1.4933333333333334rem;
+  right: 5.12rem;
+}
+#filterFriend {
+  width: 100%;
+  height: 100%;
+  background: url("../images/bottom-cloud.png") no-repeat center bottom #fec9a9;
+  background-size: 100% auto;
+}
+#filterFriend .filterList {
+  position: fixed;
+  width: 100%;
+  background-color: #FEFFF1;
+  box-sizing: border-box;
+  padding: 1.8773333333333333rem 0.5333333333333333rem 0 0.5333333333333333rem;
+}
+#filterFriend .filterList .searchWra {
+  position: relative;
+}
+#filterFriend .filterList .searchWra .searchIcon {
+  display: inline-block;
+  width: 0.6186666666666667rem;
+  height: 0.576rem;
+  background: url("../images/search.png") no-repeat center;
+  background-size: 0.6186666666666667rem 0.576rem;
+  position: absolute;
+  left: 0.384rem;
+  top: 0.768rem;
+}
+#filterFriend .filterList .searchWra .search {
+  width: 12.949333333333334rem;
+  height: 1.28rem;
+  background-color: #FEC9A9;
+  border-radius: 0.64rem;
+  margin: 0.4266666666666667rem 0;
+  text-indent: 1.28rem;
+  font-size: 15px;
+  outline: none;
+  color: #ffffff;
+}
+#filterFriend .filterList .searchWra .search::-webkit-input-placeholder {
+  color: #FFFFFF;
+  text-indent: 1.28rem;
+}
+#filterFriend .filterList .searchWra .cancel {
+  display: inline-block;
+  height: 1.28rem;
+  line-height: 1.28rem;
+  color: #FD7C5A;
+  font-size: 0.5973333333333334rem;
+  margin-left: 0.5333333333333333rem;
+}
+#filterFriend .filter {
+  padding-top: 4.48rem;
+}
+#filterFriend .filter .filterTitle {
+  font-size: 0.5973333333333334rem;
+  color: #EB8363;
+  width: 100%;
+  height: 1.7066666666666668rem;
+  line-height: 1.7066666666666668rem;
+  box-sizing: border-box;
+  padding: 0 0.8533333333333334rem;
+  background-color: #FEFFF1;
+}
+#filterFriend .filter #filList .filItem {
+  width: 100%;
+  height: 1.92rem;
+  box-sizing: border-box;
+  padding: 0 0.8533333333333334rem;
+  background-color: #FEFFF1;
+  font-size: 0.5973333333333334rem;
+  color: #333333;
+  border-top: 1px solid #FDE8CF;
+  line-height: 1.92rem;
+}
+#filterFriend .filter #filList .filItem img {
+  width: 0.7253333333333334rem;
+  height: 0.7253333333333334rem;
+  float: left;
+  margin-top: 0.5973333333333334rem;
+  margin-right: 0.32rem;
+}
+#filterFriend .filter #filList .filItem .btnRight {
+  display: inline-block;
+  width: 0.256rem;
+  height: 0.448rem;
+  background: url("../images/btn-right.png") no-repeat center;
+  background-size: 0.256rem 0.448rem;
+  float: right;
+  margin-top: 0.64rem;
+}
+#myShoppage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/myHomepage.png") no-repeat center top #ffdeb7;
+  background-size: 100% auto;
+}
+#myShoppage .shopInfo {
+  position: relative;
+  padding-top: 2.7733333333333334rem;
+  text-align: center;
+}
+#myShoppage .shopInfo img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+}
+#myShoppage .shopInfo .shopName {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.7253333333333334rem;
+  color: #ffffff;
+  text-align: center;
+}
+#myShoppage .shopInfo .shopGrade {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  text-align: center;
+}
+#myShoppage .shopInfo .shopGrade i {
+  display: inline-block;
+  font-style: normal;
+  width: 0.5973333333333334rem;
+  height: 0.576rem;
+  background: url("../images/personGrade.png") no-repeat center;
+  background-size: 0.5973333333333334rem 0.576rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.128rem;
+}
+#myShoppage .shopArgument {
+  background-color: #ffdeb7;
+  margin-top: 7.466666666666667rem;
+}
+#myShoppage .shopArgument .shopTitle {
+  box-sizing: border-box;
+  padding: 0 0.64rem 0 0.8533333333333334rem;
+  width: 100%;
+  line-height: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-bottom: 1px solid #FED3A0;
+  font-size: 0.64rem;
+  color: #FC8367;
+}
+#myShoppage .shopArgument .shopTitle .titleNum {
+  margin-left: 4.48rem;
+  margin-right: 3.989333333333333rem;
+}
+#myShoppage .shopArgument .argumentList .argumentItem {
+  box-sizing: border-box;
+  padding: 0 0.64rem 0 0.8533333333333334rem;
+  width: 100%;
+  line-height: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-bottom: 1px solid #FED3A0;
+  font-size: 0.64rem;
+  color: #333333;
+}
+#myShoppage .shopArgument .argumentList .argumentItem p {
+  display: inline-block;
+}
+#myShoppage .shopArgument .argumentList .argumentItem .argumentName {
+  width: 6.4rem;
+}
+#myShoppage .shopArgument .argumentList .argumentItem .argumentNum {
+  width: 2.986666666666667rem;
+  margin-left: 0.5333333333333333rem;
+  margin-right: 0.10666666666666667rem;
+}
+#myShoppage .shopArgument .argumentList .argumentItem .argumentScore {
+  width: 3.072rem;
+  text-align: right;
+}
+#myShoppage .shopArgument .argumentList .argumentItem .btnRight {
+  display: inline-block;
+  width: 0.256rem;
+  height: 0.448rem;
+  background: url("../images/btn-right.png") no-repeat center;
+  background-size: 0.256rem 0.448rem;
+  float: right;
+  margin-top: 0.8533333333333334rem;
+}
+#TaShoppage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../images/myHomepage.png") no-repeat center top #ffdeb7;
+  background-size: 100% auto;
+}
+#TaShoppage .TaShopInfo {
+  position: relative;
+  padding-top: 2.7733333333333334rem;
+  text-align: center;
+}
+#TaShoppage .TaShopInfo img {
+  width: 4.266666666666667rem;
+  height: 4.266666666666667rem;
+  border-radius: 50%;
+}
+#TaShoppage .TaShopInfo .TaShopName {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.7253333333333334rem;
+  color: #ffffff;
+  text-align: center;
+}
+#TaShoppage .TaShopInfo .TaShopGrade {
+  margin-top: 0.4266666666666667rem;
+  font-size: 0.5973333333333334rem;
+  color: #FEEADA;
+  text-align: center;
+}
+#TaShoppage .TaShopInfo .TaShopGrade i {
+  display: inline-block;
+  font-style: normal;
+  width: 0.5973333333333334rem;
+  height: 0.576rem;
+  background: url("../images/personGrade.png") no-repeat center;
+  background-size: 0.5973333333333334rem 0.576rem;
+  vertical-align: middle;
+  margin-right: 0.21333333333333335rem;
+  margin-top: -0.128rem;
+}
+#TaShoppage .TaShopArgument {
+  background-color: #ffdeb7;
+  margin-top: 7.466666666666667rem;
+}
+#TaShoppage .TaShopArgument .TaShopTitle {
+  box-sizing: border-box;
+  padding: 0 0.64rem 0 0.8533333333333334rem;
+  font-size: 0.64rem;
+  color: #FC8367;
+  width: 100%;
+  line-height: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-bottom: 1px solid #FED3A0;
+}
+#TaShoppage .TaShopArgument .TaShopTitle .TaTitleName {
+  margin-left: 2.8373333333333335rem;
+  margin-right: 4.266666666666667rem;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem {
+  box-sizing: border-box;
+  padding: 0 0.64rem 0 0.8533333333333334rem;
+  width: 100%;
+  line-height: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-bottom: 1px solid #FED3A0;
+  font-size: 0.64rem;
+  color: #333333;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem p {
+  display: inline-block;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem .TaArgumentTime {
+  width: 4.693333333333333rem;
+  font-size: 0.512rem;
+  overflow: hidden;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem .TaArgumentName {
+  width: 4.266666666666667rem;
+  margin-left: 0.5333333333333333rem;
+  margin-right: 0.10666666666666667rem;
+  font-size: 0.5973333333333334rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem .TaArgumentScore {
+  width: 1.7066666666666668rem;
+  margin-left: 0.21333333333333335rem;
+  font-size: 0.5973333333333334rem;
+  text-align: right;
+  overflow: hidden;
+}
+#TaShoppage .TaShopArgument .TaArgumentList .TaArgumentItem .invite-btn {
+  float: right;
+  width: 2.1333333333333333rem;
+  height: 1.0666666666666667rem;
+  border-radius: 0.5333333333333333rem;
+  background-color: #FD7C5A;
+  line-height: 1.1093333333333333rem;
+  text-align: center;
+  font-size: 0.5546666666666666rem;
+  color: #FFFFFF;
+  margin-top: 0.5333333333333333rem;
+}
+#details {
+  width: 100%;
+  height: 100%;
+  background-color: #FEC9A9;
+}
+#details .bgCloud {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+#details .argumentDetail {
+  padding-top: 1.8773333333333333rem;
+  background-color: #FEC9A9;
+  padding-bottom: 3.52rem;
+}
+#details .argumentDetail .detailText {
+  background-color: #FEFFF1;
+  width: 100%;
+  height: 1.92rem;
+  line-height: 1.92rem;
+  font-size: 0.64rem;
+  color: #EB8363;
+  border-bottom: 1px solid #FDE8CF;
+}
+#details .argumentDetail .detailText .answerTime {
+  margin-left: 2.7093333333333334rem;
+}
+#details .argumentDetail .detailText .answerNum {
+  margin-left: 5.76rem;
+}
+#details .argumentDetail .detailList {
+  background-color: #FEFFF1;
+}
+#details .argumentDetail .detailList .detailItem {
+  width: 100%;
+  height: 1.92rem;
+  line-height: 1.7066666666666668rem;
+  color: #333333;
+  border-bottom: 1px solid #FDE8CF;
+}
+#details .argumentDetail .detailList .detailItem .detailTime {
+  font-size: 0.5973333333333334rem;
+  margin-left: 1.7066666666666668rem;
+  margin-right: 4.906666666666666rem;
+}
+#details .argumentDetail .detailList .detailItem .detailNum {
+  font-size: 0.6826666666666666rem;
+  font-weight: bold;
+}
+#personRank {
+  width: 100%;
+  height: 100%;
+  background-color: #fefff1;
+}
+#personRank .bgCloud {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+#personRank .perRankList {
+  padding-top: 1.8773333333333333rem;
+}
+#personRank .perRankList .perRanItem {
+  width: 100%;
+  height: 4.266666666666667rem;
+  background-color: #fefff1;
+  border-bottom: 1px solid #FDE8CF;
+  box-sizing: border-box;
+  padding: 1.28rem 0.8533333333333334rem;
+}
+#personRank .perRankList .perRanItem img {
+  width: 1.7066666666666668rem;
+  height: 1.7066666666666668rem;
+  float: left;
+}
+#personRank .perRankList .perRanItem .perRanName {
+  font-size: 0.6826666666666666rem;
+  color: #333333;
+  line-height: 1.7066666666666668rem;
+  margin-left: 0.64rem;
+}
+#personRank .perRankList .perRanItem .RanStart {
+  display: inline-block;
+  width: 0.8533333333333334rem;
+  height: 0.8533333333333334rem;
+  background: url("../images/icon-start.png") no-repeat center;
+  background-size: 100%;
+  float: right;
+  padding-top: 0.64rem;
+  margin-left: 0.21333333333333335rem;
+}
+#teamRank {
+  width: 100%;
+  height: 100%;
+  background-color: #fefff1;
+}
+#teamRank .bgCloud {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+#teamRank .teamRankList {
+  padding-top: 1.8773333333333333rem;
+}
+#teamRank .teamRankList .teamRanItem {
+  width: 100%;
+  height: 4.266666666666667rem;
+  background-color: #fefff1;
+  border-bottom: 1px solid #FDE8CF;
+  box-sizing: border-box;
+  padding: 1.1733333333333333rem 0.8533333333333334rem;
+}
+#teamRank .teamRankList .teamRanItem img {
+  width: 1.7066666666666668rem;
+  height: 1.92rem;
+  float: left;
+}
+#teamRank .teamRankList .teamRanItem .teamRanName {
+  font-size: 0.6826666666666666rem;
+  color: #333333;
+  line-height: 1.92rem;
+  margin-left: 0.64rem;
+}
+#teamRank .teamRankList .teamRanItem .RanStart {
+  display: inline-block;
+  width: 0.8533333333333334rem;
+  height: 0.8533333333333334rem;
+  background: url("../images/icon-start.png") no-repeat center;
+  background-size: 100%;
+  float: right;
+  padding-top: 0.64rem;
+  margin-left: 0.21333333333333335rem;
+}
+#topList {
+  height: 100vh;
+}
+#topList .rankWrap {
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 0 0.512rem;
+  background: #fdc5a3;
+  background-size: 100% auto;
+  padding-top: 2.4106666666666667rem;
+}
+#topList .rankWrap .rankClassify {
+  border: 0.064rem solid #fd7c5a;
+  width: 100%;
+  height: 1.4933333333333334rem;
+  color: #FD7C5A;
+  line-height: 1.4933333333333334rem;
+  font-size: 0.7253333333333334rem;
+  display: flex;
+  border-radius: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankClassify .total {
+  text-align: center;
+  width: 50%;
+}
+#topList .rankWrap .rankClassify .value {
+  text-align: center;
+  width: 50%;
+}
+#topList .rankWrap .rankDetails {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #FEFFF1;
+  margin-top: 1.28rem;
+  border-radius: 0.4266666666666667rem;
+}
+#topList .rankWrap .rankDetails .topThree {
+  width: 100%;
+  height: 7.68rem;
+  display: flex;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 {
+  width: 33.3333%;
+  border-radius: 0.4266666666666667rem;
+  text-align: center;
+  padding-top: 1.92rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Wrap {
+  display: inline-block;
+  width: 2.7733333333333334rem;
+  height: 2.7733333333333334rem;
+  border-radius: 50%;
+  background: url("../images/defaultAvatar.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Wrap img {
+  width: 2.7733333333333334rem;
+  height: 2.7733333333333334rem;
+  border-radius: 50%;
+  display: block;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Wrap .crown-blue {
+  position: absolute;
+  width: 0.96rem;
+  height: 0.8746666666666667rem;
+  background: url("../images/crown-blue.png") no-repeat center;
+  background-size: 100%;
+  right: -0.128rem;
+  top: -0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Wrap .topNo3Num {
+  position: absolute;
+  width: 2.56rem;
+  height: 0.7466666666666667rem;
+  background: url("../images/No3.png") no-repeat center;
+  background-size: 100%;
+  left: 0.128rem;
+  bottom: -0.4266666666666667rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info {
+  margin-top: 0.768rem;
+  width: 100%;
+  text-align: center;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info .topNo3Name {
+  font-size: 0.5973333333333334rem;
+  color: #30ABE9;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info .topNo3Score {
+  font-size: 0.512rem;
+  color: #30ABE9;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info .topNo3Score:before {
+  content: '';
+  display: inline-block;
+  width: 0.4053333333333333rem;
+  height: 0.4266666666666667rem;
+  background: url("../images/score-blue.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info .topNo3Value {
+  font-size: 0.512rem;
+  color: #30ABE9;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo3 .topNo3Info .topNo3Value:before {
+  content: '';
+  display: inline-block;
+  width: 0.6186666666666667rem;
+  height: 0.49066666666666664rem;
+  background: url("../images/value-blue.png") no-repeat center;
+  background-size: 0.5333333333333333rem 0.49066666666666664rem;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 {
+  width: 33.3333%;
+  background-color: #FEFFF1;
+  margin-top: -0.8106666666666666rem;
+  border-radius: 0.64rem;
+  text-align: center;
+  padding-top: 1.0666666666666667rem;
+  position: relative;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Wrap {
+  display: inline-block;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background: url("../images/defaultAvatar.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Wrap img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  display: block;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Wrap .crown-yellow {
+  position: absolute;
+  width: 1.024rem;
+  height: 0.9386666666666666rem;
+  background: url("../images/crown-yellow.png") no-repeat center;
+  background-size: 100%;
+  right: -0.128rem;
+  top: -0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Wrap .topNo1Num {
+  position: absolute;
+  width: 3.136rem;
+  height: 0.7893333333333333rem;
+  background: url("../images/No1.png") no-repeat center;
+  background-size: 100%;
+  left: 1px;
+  bottom: -0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info {
+  margin-top: 0.768rem;
+  width: 100%;
+  text-align: center;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info .topNo1Name {
+  font-size: 0.6826666666666666rem;
+  color: #F9BB00;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info .topNo1Score {
+  font-size: 0.5546666666666666rem;
+  color: #F9BB00;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info .topNo1Score:before {
+  content: '';
+  display: inline-block;
+  width: 0.512rem;
+  height: 0.5333333333333333rem;
+  background: url("../images/score-yellow.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+  margin-top: -0.17066666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info .topNo1Value {
+  font-size: 0.5546666666666666rem;
+  color: #F9BB00;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .topNo1Info .topNo1Value:before {
+  content: '';
+  display: inline-block;
+  width: 0.6186666666666667rem;
+  height: 0.49066666666666664rem;
+  background: url("../images/value-yellow.png") no-repeat center;
+  background-size: 0.576rem 0.49066666666666664rem;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+  margin-top: -0.08533333333333333rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .shadowLeft {
+  position: absolute;
+  width: 0.2986666666666667rem;
+  height: 3.6053333333333333rem;
+  background: url("../images/no1-left-shadow.png") no-repeat center;
+  background-size: 100%;
+  left: -0.2986666666666667rem;
+  top: 0.8106666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo1 .shadowRight {
+  position: absolute;
+  width: 0.2986666666666667rem;
+  height: 3.6053333333333333rem;
+  background: url("../images/no1-right-shadow.png") no-repeat center;
+  background-size: 100%;
+  right: -0.2986666666666667rem;
+  top: 0.8106666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 {
+  width: 33.3333%;
+  border-radius: 0.4266666666666667rem;
+  text-align: center;
+  padding-top: 1.92rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Wrap {
+  display: inline-block;
+  width: 2.7733333333333334rem;
+  height: 2.7733333333333334rem;
+  border-radius: 50%;
+  background: url("../images/defaultAvatar.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Wrap img {
+  width: 2.7733333333333334rem;
+  height: 2.7733333333333334rem;
+  border-radius: 50%;
+  display: block;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Wrap .crown-red {
+  position: absolute;
+  width: 0.96rem;
+  height: 0.8746666666666667rem;
+  background: url("../images/crown-red.png") no-repeat center;
+  background-size: 100%;
+  right: -0.128rem;
+  top: -0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Wrap .topNo2Num {
+  position: absolute;
+  width: 2.56rem;
+  height: 0.7466666666666667rem;
+  background: url("../images/No2.png") no-repeat center;
+  background-size: 100%;
+  left: 0.128rem;
+  bottom: -0.4266666666666667rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info {
+  margin-top: 0.768rem;
+  width: 100%;
+  text-align: center;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info .topNo2Name {
+  font-size: 0.5973333333333334rem;
+  color: #FE6844;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info .topNo2Score {
+  font-size: 0.512rem;
+  color: #FE6844;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info .topNo2Score:before {
+  content: '';
+  display: inline-block;
+  width: 0.4053333333333333rem;
+  height: 0.4266666666666667rem;
+  background: url("../images/score-red.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info .topNo2Value {
+  font-size: 0.512rem;
+  color: #FE6844;
+  margin-top: 0.21333333333333335rem;
+}
+#topList .rankWrap .rankDetails .topThree .topNo2 .topNo2Info .topNo2Value:before {
+  content: '';
+  display: inline-block;
+  width: 0.5333333333333333rem;
+  height: 0.49066666666666664rem;
+  background: url("../images/value-red.png") no-repeat center;
+  background-size: 100%;
+  vertical-align: middle;
+  margin-right: 0.17066666666666666rem;
+}
+#topList .rankWrap .rankDetails .myRank {
+  width: 100%;
+  height: 1.28rem;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  padding: 0.32rem 1.024rem;
+  font-size: 0.64rem;
+  color: #FEAA77;
+  border-top: 1px solid #FDC5A3;
+  border-bottom: 1px solid #FDC5A3;
+}
+#topList .rankWrap .rankDetails .myRank .myNoNum {
+  float: left;
+}
+#topList .rankWrap .rankDetails .myRank .myNoNum i {
+  font-style: normal;
+}
+#topList .rankWrap .rankDetails .myRank .myTotal {
+  float: right;
+}
+#topList .rankWrap .rankDetails .myRank .myTotal i {
+  font-style: normal;
+}
+#topList .rankWrap .rankDetails .topTen {
+  box-sizing: border-box;
+  padding: 0.21333333333333335rem 1.024rem;
+  height: 13.653333333333334rem;
+  overflow: auto;
+}
+#topList .rankWrap .rankDetails .topTen::-webkit-scrollbar {
+  display: none;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo {
+  box-sizing: border-box;
+  padding: 0.21333333333333335rem 0;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo .topTenImg {
+  width: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-radius: 50%;
+  float: left;
+  position: relative;
+  background: url("../images/defaultAvatar.png") no-repeat center;
+  background-size: cover;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo .topTenImg .rankNum {
+  position: absolute;
+  width: 0.5973333333333334rem;
+  height: 0.5973333333333334rem;
+  border-radius: 50%;
+  background-color: #ECFF1B;
+  border: 1px solid #000000;
+  left: 0;
+  bottom: 0;
+  font-size: 0.4693333333333333rem;
+  color: #333333;
+  text-align: center;
+  line-height: 0.6826666666666666rem;
+  font-weight: bold;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo .topTenImg img {
+  width: 2.1333333333333333rem;
+  height: 2.1333333333333333rem;
+  border-radius: 50%;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo .topTenName {
+  font-size: 0.5973333333333334rem;
+  color: #333333;
+  line-height: 2.1333333333333333rem;
+  margin-left: 2.986666666666667rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#topList .rankWrap .rankDetails .topTen .topTenInfo .topTenNum {
+  float: right;
+  font-size: 0.5973333333333334rem;
+  color: #333333;
+  line-height: 2.1333333333333333rem;
+}
+/*动画效果*/
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+.fadeInLeft {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+.fadeInRight {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fadeOut {
+  -webkit-animation: infinite;
+  animation: infinite;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+@keyframes bounceIn {
+  0%,
+  100%,
+  20%,
+  40%,
+  60%,
+  80% {
+    -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    -ms-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    -ms-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    -ms-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    -ms-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    -ms-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+.bounceIn {
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: .75s;
+  animation-duration: 0.75s;
+}
